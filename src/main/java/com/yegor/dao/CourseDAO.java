@@ -1,7 +1,6 @@
 package com.yegor.dao;
 
 import com.yegor.entities.CourseEntity;
-import com.yegor.entities.StudentEntity;
 import com.yegor.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.resource.transaction.spi.TransactionStatus;

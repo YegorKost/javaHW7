@@ -1,7 +1,7 @@
 package com.yegor.entities;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 /**
  * Created by YegorKost on 06.03.2017.
@@ -17,8 +17,8 @@ public class CourseEntity {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-    private Set<StudentEntity> students;
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    private List<StudentEntity> students;
 
     public Integer getId() {
         return id;
@@ -36,11 +36,11 @@ public class CourseEntity {
         this.name = name;
     }
 
-    public Set<StudentEntity> getStudents() {
+    public List<StudentEntity> getStudents() {
         return students;
     }
 
-    public void setStudents(Set<StudentEntity> students) {
+    public void setStudents(List<StudentEntity> students) {
         this.students = students;
     }
 
