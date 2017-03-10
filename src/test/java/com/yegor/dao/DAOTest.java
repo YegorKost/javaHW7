@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 /**
  * Created by YegorKost on 08.03.2017.
  */
-public class CourseDAOTest {
+public class DAOTest {
 
     private static CourseEntity c1, c2;
     private static StudentEntity s1, s2;
@@ -64,7 +64,7 @@ public class CourseDAOTest {
     }
 
     @Test
-    public void addTest() throws Exception {
+    public void addCourseTest() throws Exception {
         CourseEntity courseNew = new CourseEntity();
         courseNew.setName("Scala");
         courseDAO.add(courseNew);
@@ -72,7 +72,7 @@ public class CourseDAOTest {
     }
 
     @Test
-    public void getTest() throws Exception {
+    public void getCourseTest() throws Exception {
         CourseEntity courseEntity = courseDAO.get(1);
         assertEquals(c1, courseEntity);
         assertTrue(courseEntity.getStudents().contains(s1));
@@ -87,7 +87,7 @@ public class CourseDAOTest {
     }
 
     @Test
-    public void updateTest() throws Exception {
+    public void updateCourseTest() throws Exception {
         CourseEntity courseUpdate = courseDAO.get(2);
         courseUpdate.setName("Python-1");
         courseDAO.update(courseUpdate);
@@ -95,19 +95,12 @@ public class CourseDAOTest {
     }
 
     @Test
-    public void deleteTest() throws Exception {
+    public void deleteCourseTest() throws Exception {
         CourseEntity courseDel = courseDAO.get(2);
         assertEquals(c2, courseDel);
         courseDAO.delete(courseDel);
         assertEquals(null, courseDAO.get(2));
     }
-
-//    @Test
-//    public void deleteTest1() throws Exception {
-//        CourseEntity courseDel = courseDAO.get(1);
-//        assertEquals(c1, courseDel);
-//        courseDAO.delete(courseDel);
-//    }
 
     @Test
     public void addStudentTest() throws Exception {
@@ -130,9 +123,9 @@ public class CourseDAOTest {
 
     @Test
     public void getAllStudentTest() throws Exception {
-//        List<StudentEntity> students = studentDAO.getAll();
-        assertTrue(studentDAO.getAll().contains(s1));
-//        assertTrue(students.contains(s2));
+        List<StudentEntity> students = studentDAO.getAll();
+        assertTrue(students.contains(s1));
+        assertTrue(students.contains(s2));
     }
 
     @Test
