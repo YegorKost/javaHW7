@@ -16,8 +16,8 @@ public class DAOTest {
 
     private static CourseEntity c1, c2;
     private static StudentEntity s1, s2;
-    private CourseDAO courseDAO = new CourseDAO();
-    private StudentDAO studentDAO = new StudentDAO();
+    private CourseDAOImpl courseDAO = new CourseDAOImpl();
+    private StudentDAOImpl studentDAO = new StudentDAOImpl();
 
     @BeforeClass
     public static void initDB() {

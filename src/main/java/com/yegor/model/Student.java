@@ -11,9 +11,10 @@ public class Student implements Serializable{
     private Integer id;
     private String name;
     private String surname;
-    private Long phone_number;
+    private String phoneNumber;
     private LocalDate birthday;
     private String email;
+    private Course course;
 
     public Student() {
     }
@@ -42,12 +43,12 @@ public class Student implements Serializable{
         this.surname = surname;
     }
 
-    public Long getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(Long phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public LocalDate getBirthday() {
@@ -66,6 +67,14 @@ public class Student implements Serializable{
         this.email = email;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -76,7 +85,7 @@ public class Student implements Serializable{
         if (!id.equals(student.id)) return false;
         if (!name.equals(student.name)) return false;
         if (!surname.equals(student.surname)) return false;
-        if (phone_number != null ? !phone_number.equals(student.phone_number) : student.phone_number != null)
+        if (phoneNumber != null ? !phoneNumber.equals(student.phoneNumber) : student.phoneNumber != null)
             return false;
         if (birthday != null ? !birthday.equals(student.birthday) : student.birthday != null) return false;
         return email != null ? email.equals(student.email) : student.email == null;
@@ -88,7 +97,7 @@ public class Student implements Serializable{
         int result = id.hashCode();
         result = 31 * result + name.hashCode();
         result = 31 * result + surname.hashCode();
-        result = 31 * result + (phone_number != null ? phone_number.hashCode() : 0);
+        result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
@@ -97,11 +106,13 @@ public class Student implements Serializable{
     @Override
     public String toString() {
         return "Student{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", phone_number=" + phone_number +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", birthday=" + birthday +
                 ", email='" + email + '\'' +
+                ", course=" + course +
                 '}';
     }
 }
